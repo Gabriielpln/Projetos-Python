@@ -1,0 +1,24 @@
+preco = float(input('Preço das compras: R$: '))
+metodo = int(input('''Métodos de pagamento:
+[ 1 ] Dinheiro / cheque
+[ 2 ] Cartão à vista
+[ 3 ] Cartão parcelado
+[ 4 ] 3x ou mais no cartão
+'''))
+if metodo == 1:
+    total = preco - (10 / 100)
+elif metodo == 2:
+    total = preco - (5 / 100)
+elif metodo == 3:
+    total = preco
+    parcela = total / 2
+    print('Sua compra será parcelada em 2x de R$:{} sem juros'.format(parcela))
+elif metodo == 4:
+    total = preco + (preco * 20 / 100)
+    totalparc = int(input('Quantas parcelas? '))
+    parcela = total / totalparc
+    print('Sua compra será parcelada em {}x de {:.2f} com juros'.format(totalparc, parcela))
+else:
+    total = preco
+    print('Opção inválida, tente novamente')
+print('Sua compra de R$:{:.2f} vai custar R$:{:.2f} no final'.format(preco, total))
